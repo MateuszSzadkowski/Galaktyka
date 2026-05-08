@@ -40,7 +40,7 @@ add_executable(Galaktyka_Clion main.cpp
         IsUpdatable.h
         FastTravelObject.cpp
         FastTravelObject.h
-        RandomClusterMapGenerator.cpp
-        RandomClusterMapGenerator.h
+        RandomMapGenerator.cpp
+        RandomMapGenerator.h
         MapGenerator.cpp
         MapGenerator.h)

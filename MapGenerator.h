@@ -2,20 +2,22 @@
 #define MAPGENERATOR_H
 #include "Galaxy_Object.h"
 
-class MapGenerator : Galaxy_Object
+class MapGenerator : protected Galaxy_Object
 {
 protected:
-    struct Borders
+    struct borders
     {
         Coordinates topLeft;
         Coordinates bottomRight;
     };
+    borders perimeter = {};
 public:
-    virtual void setDensity(double density);
-    virtual double getDensity();
-    virtual void setGenerationBorders(Borders Borders);
-    virtual Borders getGenerationBorders();
-    virtual void setGenerationObject(Galaxy_Object Galaxy_Object);
+    virtual void setDensity(double density) = 0;
+    virtual double getDensity() = 0;
+    virtual void setGenerationBorders(borders borders) = 0;
+    virtual borders getGenerationBorders() = 0;
+    virtual void setGenerationObject(Galaxy_Object Galaxy_Object) = 0;
+    virtual void generate() = 0;
 };
 
 
