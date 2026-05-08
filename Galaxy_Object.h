@@ -3,8 +3,6 @@
 
 class Galaxy_Object {
 public:
-    virtual ~Galaxy_Object() = default;
-
     struct Coordinates
     {
         double X;
@@ -13,7 +11,9 @@ public:
     Coordinates Position{};
     static int Tick;
 
-    Galaxy_Object();
+    Galaxy_Object() = default;
+
+    virtual ~Galaxy_Object() = default;
 
     explicit Galaxy_Object(Coordinates Position);
 

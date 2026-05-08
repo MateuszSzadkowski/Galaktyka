@@ -16,11 +16,10 @@ private:
 	std::string Name;
 	std::vector<Civilization*> Inhabitants;
 	std::vector<Resource*> AvailableResources{};
-	int RevolutionTime;
 
 public:
 	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Coordinates Barycenter,
-	       float DistanceFromBarycenter, int RevolutionTime, std::initializer_list<Resource *> AvailableResources);
+	       float DistanceFromBarycenter, float RevolutionSpeed, std::initializer_list<Resource *> AvailableResources);
 
 	~Planet() override;
 
@@ -30,7 +29,7 @@ public:
 
 	void UpdatePosition(int Tick) override;
 
-	void ShowInformation() const;
+	void ShowInformation() override;
 
 	void WipeCivilisation(int CivilisationIndex);
 
@@ -40,11 +39,15 @@ public:
 
 	float getCombinedMilitaryCapabilities() const;
 
-	std::string getName() const;
+	std::string getName() override;
 
-	Coordinates getPosition() const;
+	Coordinates getPosition() override;
 
 	void GlobalWarming();
+
+	float getRevolutionSpeed() override;
+
+	int CalculateRevolutionTime() override;
 
 };
 

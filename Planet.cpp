@@ -2,13 +2,13 @@
 #include <cmath>
 #include <iostream>
 
+#define PI 3.14159265
+
 Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, const Coordinates Barycenter,
-               const float DistanceFromBarycenter, const int RevolutionTime,
-               const std::initializer_list<Resource *> AvailableResources) : CelestialBody(Barycenter, DistanceFromBarycenter){
+               const float DistanceFromBarycenter, const float RevolutionSpeed,
+               const std::initializer_list<Resource *> AvailableResources) : CelestialBody(Barycenter, DistanceFromBarycenter, RevolutionSpeed){
 	this->Name = Name;
 	this->Inhabitants = Inhabitants;
-	this->DistanceFromBarycenter = DistanceFromBarycenter;
-	this->RevolutionTime = RevolutionTime;
 	this->Position = {Barycenter.X + DistanceFromBarycenter, Barycenter.Y};
 	this->AvailableResources = AvailableResources;
 }
@@ -21,13 +21,18 @@ Planet::~Planet()
 	}
 }
 
-void Planet::UpdatePosition(const int Tick)
+int Planet::CalculateRevolutionTime()
 {
-	const double Degree = 2 * 3.14159f * ( ( Tick % RevolutionTime ) / static_cast<double>(RevolutionTime) );
-	Position = { Barycenter.X + sin(Degree) * DistanceFromBarycenter * 100, Barycenter.Y + cos(Degree) * DistanceFromBarycenter * 100 };
+	return static_cast<int>(2 * PI * DistanceFromBarycenter / RevolutionSpeed);
 }
 
-void Planet::ShowInformation() const
+void Planet::UpdatePosition(const int Tick)
+{
+	const double Degree = 2 * PI * ( ( Tick % CalculateRevolutionTime() ) / static_cast<double>(CalculateRevolutionTime()) );
+	Position = { Barycenter.X + sin(Degree) * DistanceFromBarycenter, Barycenter.Y + cos(Degree) * DistanceFromBarycenter };
+}
+
+void Planet::ShowInformation()
 {
 	std::cout << "Planet: " << Name << ", " << DistanceFromBarycenter << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
 	for (int i = 0; i < Inhabitants.size(); i++)
@@ -78,12 +83,17 @@ float Planet::getCombinedMilitaryCapabilities() const {
 	return Sum;
 }
 
-std::string Planet::getName() const
+float Planet::getRevolutionSpeed() {
+	return RevolutionSpeed;
+}
+
+std::string Planet::getName()
 {
 	return Name;
 }
 
-Galaxy_Object::Coordinates Planet::getPosition() const {
+Galaxy_Object::Coordinates Planet::getPosition()
+{
 	return Position;
 }
 

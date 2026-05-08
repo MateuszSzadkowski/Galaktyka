@@ -45,7 +45,7 @@ public:
 
     void ConstructSpaceship();
 
-    void ResearchPlanet(const Planet* Planet);
+    void ResearchPlanet(Planet* Planet);
 
     void ManipulateMarket(const GalacticMarket* GalacticMarket, float Price, int ListingNumber);
 
