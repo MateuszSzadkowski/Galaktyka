@@ -1,0 +1,3 @@
+C:/Users/szadk/Desktop/Studia/Programowanie obiektowe/Galaktyka_Clion/cmake-build-debug/CMakeFiles/Galaktyka_Clion.dir
+C:/Users/szadk/Desktop/Studia/Programowanie obiektowe/Galaktyka_Clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/szadk/Desktop/Studia/Programowanie obiektowe/Galaktyka_Clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
