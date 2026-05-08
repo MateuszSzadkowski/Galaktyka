@@ -5,10 +5,10 @@
 
 class CelestialBody : public Galaxy_Object{
     public:
-    Coordinates Barycenter;
+    Coordinates Barycenter{};
     float DistanceFromBarycenter;
 
-    CelestialBody();
+    CelestialBody(Coordinates Barycenter, float DistanceFromBarycenter);
 
     virtual void UpdatePosition(int Tick) = 0;
 };

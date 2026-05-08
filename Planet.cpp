@@ -4,7 +4,7 @@
 
 Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, const Coordinates Barycenter,
                const float DistanceFromBarycenter, const int RevolutionTime,
-               const std::initializer_list<Resource *> AvailableResources) {
+               const std::initializer_list<Resource *> AvailableResources) : CelestialBody(Barycenter, DistanceFromBarycenter){
 	this->Name = Name;
 	this->Inhabitants = Inhabitants;
 	this->DistanceFromBarycenter = DistanceFromBarycenter;
