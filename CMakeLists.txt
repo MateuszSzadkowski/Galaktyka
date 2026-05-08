@@ -37,4 +37,6 @@ add_executable(Galaktyka_Clion main.cpp
         CelestialBody.cpp
         CelestialBody.h
         IsUpdatable.cpp
-        IsUpdatable.h)
+        IsUpdatable.h
+        FastTravelObject.cpp
+        FastTravelObject.h)

@@ -7,6 +7,10 @@ public:
     {
         double X;
         double Y;
+
+        bool operator==(const Coordinates &other) const {
+            return X == other.X && Y == other.Y;
+        }
     };
     Coordinates Position{};
     static int Tick;

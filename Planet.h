@@ -34,11 +34,11 @@ public:
 
 	void WipeCivilisation(int CivilisationIndex);
 
-	bool CompareStrengths(int AttackersIndex, int DefendersIndex) const;
+	[[nodiscard]] bool CompareStrengths(int AttackersIndex, int DefendersIndex) const;
 
 	void CivilisationsWar(int AttackersIndex, int DefendersIndex);
 
-	float getCombinedMilitaryCapabilities() const;
+	[[nodiscard]] float getCombinedMilitaryCapabilities() const;
 
 	std::string getName() override;
 

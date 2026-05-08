@@ -9,5 +9,3 @@ Galaxy_Object::Galaxy_Object(const Coordinates Position) {
 static void IterateTick() {
         Galaxy_Object::Tick++;
 }
-
-
