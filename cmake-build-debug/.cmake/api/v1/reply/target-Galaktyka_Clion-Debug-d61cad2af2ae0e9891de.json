@@ -67,7 +67,12 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				31,
+				33,
+				35,
+				37,
+				39
 			]
 		}
 	],
@@ -119,7 +124,12 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				31,
+				33,
+				35,
+				37,
+				39
 			]
 		},
 		{
@@ -140,7 +150,12 @@
 				24,
 				26,
 				28,
-				30
+				30,
+				32,
+				34,
+				36,
+				38,
+				40
 			]
 		}
 	],
@@ -315,6 +330,61 @@
 		{
 			"backtrace" : 1,
 			"path" : "ResourceCarrier.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "CelestialBody.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "CelestialBody.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "IsUpdatable.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "IsUpdatable.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "FastTravelObject.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "FastTravelObject.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "RandomMapGenerator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "RandomMapGenerator.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "MapGenerator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "MapGenerator.h",
 			"sourceGroupIndex" : 1
 		}
 	],

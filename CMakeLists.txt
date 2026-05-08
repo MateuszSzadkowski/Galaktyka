@@ -33,4 +33,14 @@ add_executable(Galaktyka_Clion main.cpp
         PeopleCarrier.cpp
         PeopleCarrier.h
         ResourceCarrier.cpp
-        ResourceCarrier.h)
+        ResourceCarrier.h
+        CelestialBody.cpp
+        CelestialBody.h
+        IsUpdatable.cpp
+        IsUpdatable.h
+        FastTravelObject.cpp
+        FastTravelObject.h
+        RandomMapGenerator.cpp
+        RandomMapGenerator.h
+        MapGenerator.cpp
+        MapGenerator.h)
