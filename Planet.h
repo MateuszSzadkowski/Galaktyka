@@ -3,49 +3,54 @@
 
 #include <string>
 #include <vector>
+
+#include "CelestialBody.h"
 #include "Civilization.h"
-#include "Galaxy_Object.h"
+#include "IsUpdatable.h"
 #include "Star.h"
 #include "Resource.h"
 
 class Civilization;
 
-class Planet : Galaxy_Object{
+class Planet : public CelestialBody, IsUpdatable{
 private:
 	std::string Name;
 	std::vector<Civilization*> Inhabitants;
 	std::vector<Resource*> AvailableResources{};
-	float DistanceFromStar;
-	int RevolutionTime;
-	Star* ParentStar{};
 
 public:
-	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Star *ParentStar,
-	       float DistanceFromStar, int RevolutionTime, std::initializer_list<Resource *> AvailableResources);
+	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Coordinates Barycenter,
+	       float DistanceFromBarycenter, float RevolutionSpeed, std::initializer_list<Resource *> AvailableResources);
 
-	~Planet();
+	~Planet() override;
 
 	friend class Civilization;
 
 	friend void ChangePosition(Planet* Planet, Coordinates Position);
 
-	void UpdatePosition(int Tick);
+	void UpdatePosition(int Tick) override;
 
-	void ShowInformation() const;
+	void ShowInformation() override;
 
 	void WipeCivilisation(int CivilisationIndex);
 
-	bool CompareStrengths(int AttackersIndex, int DefendersIndex) const;
+	[[nodiscard]] bool CompareStrengths(int AttackersIndex, int DefendersIndex) const;
 
 	void CivilisationsWar(int AttackersIndex, int DefendersIndex);
 
-	float getCombinedMilitaryCapabilities() const;
+	[[nodiscard]] float getCombinedMilitaryCapabilities() const;
 
-	std::string getName() const;
+	std::string getName() override;
 
-	Coordinates getPosition() const;
+	Coordinates getPosition() override;
 
 	void GlobalWarming();
+
+	float getRevolutionSpeed() override;
+
+	int CalculateRevolutionTime() override;
+
+	void Update() override;
 
 };
 

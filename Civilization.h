@@ -33,11 +33,11 @@ public:
 
     void ShowInformation() const;
 
-    long long int getPopulation() const;
+    [[nodiscard]] long long int getPopulation() const;
 
-    std::string getName() const;
+    [[nodiscard]] std::string getName() const;
 
-    double getMilitaryCapabilities() const;
+    [[nodiscard]] double getMilitaryCapabilities() const;
 
     void SufferLosses(long int Losses);
 
@@ -45,7 +45,7 @@ public:
 
     void ConstructSpaceship();
 
-    void ResearchPlanet(const Planet* Planet);
+    void ResearchPlanet(Planet* Planet);
 
     void ManipulateMarket(const GalacticMarket* GalacticMarket, float Price, int ListingNumber);
 

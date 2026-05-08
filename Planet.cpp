@@ -2,15 +2,14 @@
 #include <cmath>
 #include <iostream>
 
-Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, Star *ParentStar,
-               const float DistanceFromStar, const int RevolutionTime,
-               const std::initializer_list<Resource *> AvailableResources) {
+#define PI 3.14159265
+
+Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, const Coordinates Barycenter,
+               const float DistanceFromBarycenter, const float RevolutionSpeed,
+               const std::initializer_list<Resource *> AvailableResources) : CelestialBody(Barycenter, DistanceFromBarycenter, RevolutionSpeed){
 	this->Name = Name;
 	this->Inhabitants = Inhabitants;
-	this->DistanceFromStar = DistanceFromStar;
-	this->ParentStar = ParentStar;
-	this->RevolutionTime = RevolutionTime;
-	this->Position = {ParentStar->getPosition().X + DistanceFromStar * 100, ParentStar->getPosition().Y};
+	this->Position = {Barycenter.X + DistanceFromBarycenter, Barycenter.Y};
 	this->AvailableResources = AvailableResources;
 }
 
@@ -22,15 +21,20 @@ Planet::~Planet()
 	}
 }
 
-void Planet::UpdatePosition(const int Tick)
+int Planet::CalculateRevolutionTime()
 {
-	const double Degree = 2 * 3.14159f * ( ( Tick % RevolutionTime ) / static_cast<double>(RevolutionTime) );
-	Position = { ParentStar->getPosition().X + sin(Degree) * DistanceFromStar * 100, ParentStar->getPosition().Y + cos(Degree) * DistanceFromStar * 100 };
+	return static_cast<int>(2 * PI * DistanceFromBarycenter / RevolutionSpeed);
 }
 
-void Planet::ShowInformation() const
+void Planet::UpdatePosition(const int Tick)
 {
-	std::cout << "Planet: " << Name << ", " << DistanceFromStar << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
+	const double Degree = 2 * PI * ( ( Tick % CalculateRevolutionTime() ) / static_cast<double>(CalculateRevolutionTime()) );
+	Position = { Barycenter.X + sin(Degree) * DistanceFromBarycenter, Barycenter.Y + cos(Degree) * DistanceFromBarycenter };
+}
+
+void Planet::ShowInformation()
+{
+	std::cout << "Planet: " << Name << ", " << DistanceFromBarycenter << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
 	for (int i = 0; i < Inhabitants.size(); i++)
 	{
 		std::cout << i << "." << std::endl;
@@ -79,12 +83,17 @@ float Planet::getCombinedMilitaryCapabilities() const {
 	return Sum;
 }
 
-std::string Planet::getName() const
+float Planet::getRevolutionSpeed() {
+	return RevolutionSpeed;
+}
+
+std::string Planet::getName()
 {
 	return Name;
 }
 
-Galaxy_Object::Coordinates Planet::getPosition() const {
+Galaxy_Object::Coordinates Planet::getPosition()
+{
 	return Position;
 }
 
@@ -96,7 +105,16 @@ void Planet::GlobalWarming()
 	}
 }
 
+void Planet::Update()
+{
+	if(!isPaused) {
+		UpdatePosition(Tick);
+		lastUpdate = Tick;
+	}
+}
+
 void ChangePosition(Planet *Planet, const Galaxy_Object::Coordinates Position)
 {
 	Planet->Position = Position;
 }
+

@@ -14,7 +14,7 @@ public:
 
     friend void ChangePosition(Star* Star, Coordinates Position);
 
-    Coordinates getPosition() const;
+    [[nodiscard]] Coordinates getPosition() const;
 };
 
 void ChangePosition(Star* Star, Galaxy_Object::Coordinates Position);
