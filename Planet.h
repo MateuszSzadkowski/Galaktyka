@@ -3,33 +3,32 @@
 
 #include <string>
 #include <vector>
+
+#include "CelestialBody.h"
 #include "Civilization.h"
-#include "Galaxy_Object.h"
 #include "Star.h"
 #include "Resource.h"
 
 class Civilization;
 
-class Planet : Galaxy_Object{
+class Planet : public CelestialBody{
 private:
 	std::string Name;
 	std::vector<Civilization*> Inhabitants;
 	std::vector<Resource*> AvailableResources{};
-	float DistanceFromStar;
 	int RevolutionTime;
-	Star* ParentStar{};
 
 public:
-	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Star *ParentStar,
-	       float DistanceFromStar, int RevolutionTime, std::initializer_list<Resource *> AvailableResources);
+	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Coordinates Barycenter,
+	       float DistanceFromBarycenter, int RevolutionTime, std::initializer_list<Resource *> AvailableResources);
 
-	~Planet();
+	~Planet() override;
 
 	friend class Civilization;
 
 	friend void ChangePosition(Planet* Planet, Coordinates Position);
 
-	void UpdatePosition(int Tick);
+	void UpdatePosition(int Tick) override;
 
 	void ShowInformation() const;
 

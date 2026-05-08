@@ -5,3 +5,7 @@ Galaxy_Object::Galaxy_Object(const Coordinates Position) {
 }
 
 Galaxy_Object::Galaxy_Object() = default;
+
+static void IterateTick() {
+        Galaxy_Object::Tick++;
+}

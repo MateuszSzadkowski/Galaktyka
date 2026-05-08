@@ -2,7 +2,9 @@
 #define GALAXY_H
 
 class Galaxy_Object {
-protected:
+public:
+    virtual ~Galaxy_Object() = default;
+
     struct Coordinates
     {
         double X;
@@ -15,9 +17,7 @@ protected:
 
     explicit Galaxy_Object(Coordinates Position);
 
-    static void IterateTick() {
-        Tick++;
-    }
+    static void IterateTick();
 };
 
 #endif //GALAXY_H

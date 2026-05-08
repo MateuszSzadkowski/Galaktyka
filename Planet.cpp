@@ -2,15 +2,14 @@
 #include <cmath>
 #include <iostream>
 
-Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, Star *ParentStar,
-               const float DistanceFromStar, const int RevolutionTime,
+Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, const Coordinates Barycenter,
+               const float DistanceFromBarycenter, const int RevolutionTime,
                const std::initializer_list<Resource *> AvailableResources) {
 	this->Name = Name;
 	this->Inhabitants = Inhabitants;
-	this->DistanceFromStar = DistanceFromStar;
-	this->ParentStar = ParentStar;
+	this->DistanceFromBarycenter = DistanceFromBarycenter;
 	this->RevolutionTime = RevolutionTime;
-	this->Position = {ParentStar->getPosition().X + DistanceFromStar * 100, ParentStar->getPosition().Y};
+	this->Position = {Barycenter.X + DistanceFromBarycenter, Barycenter.Y};
 	this->AvailableResources = AvailableResources;
 }
 
@@ -25,12 +24,12 @@ Planet::~Planet()
 void Planet::UpdatePosition(const int Tick)
 {
 	const double Degree = 2 * 3.14159f * ( ( Tick % RevolutionTime ) / static_cast<double>(RevolutionTime) );
-	Position = { ParentStar->getPosition().X + sin(Degree) * DistanceFromStar * 100, ParentStar->getPosition().Y + cos(Degree) * DistanceFromStar * 100 };
+	Position = { Barycenter.X + sin(Degree) * DistanceFromBarycenter * 100, Barycenter.Y + cos(Degree) * DistanceFromBarycenter * 100 };
 }
 
 void Planet::ShowInformation() const
 {
-	std::cout << "Planet: " << Name << ", " << DistanceFromStar << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
+	std::cout << "Planet: " << Name << ", " << DistanceFromBarycenter << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
 	for (int i = 0; i < Inhabitants.size(); i++)
 	{
 		std::cout << i << "." << std::endl;

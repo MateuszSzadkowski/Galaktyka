@@ -53,7 +53,7 @@ void Civilization::ConstructSpaceship()
 }
 
 void Civilization::ResearchPlanet(const Planet* Planet) {
-    std::cout << "Planet's distance form star: " << Planet->DistanceFromStar << std::endl << "Planets Revolution Time: " << Planet->RevolutionTime << std::endl;
+    std::cout << "Planet's distance form star: " << Planet->DistanceFromBarycenter << std::endl << "Planets Revolution Time: " << Planet->RevolutionTime << std::endl;
 }
 
 void Civilization::ManipulateMarket(const GalacticMarket* GalacticMarket, const float Price, const int ListingNumber) {
