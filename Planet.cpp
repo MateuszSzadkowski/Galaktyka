@@ -105,7 +105,16 @@ void Planet::GlobalWarming()
 	}
 }
 
+void Planet::Update()
+{
+	if(!isPaused) {
+		UpdatePosition(Tick);
+		lastUpdate = Tick;
+	}
+}
+
 void ChangePosition(Planet *Planet, const Galaxy_Object::Coordinates Position)
 {
 	Planet->Position = Position;
 }
+

@@ -35,4 +35,6 @@ add_executable(Galaktyka_Clion main.cpp
         ResourceCarrier.cpp
         ResourceCarrier.h
         CelestialBody.cpp
-        CelestialBody.h)
+        CelestialBody.h
+        IsUpdatable.cpp
+        IsUpdatable.h)

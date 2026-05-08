@@ -6,12 +6,13 @@
 
 #include "CelestialBody.h"
 #include "Civilization.h"
+#include "IsUpdatable.h"
 #include "Star.h"
 #include "Resource.h"
 
 class Civilization;
 
-class Planet : public CelestialBody{
+class Planet : public CelestialBody, IsUpdatable{
 private:
 	std::string Name;
 	std::vector<Civilization*> Inhabitants;
@@ -48,6 +49,8 @@ public:
 	float getRevolutionSpeed() override;
 
 	int CalculateRevolutionTime() override;
+
+	void Update() override;
 
 };
 
