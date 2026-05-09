@@ -1,16 +1,17 @@
 #include "Star.h"
 
-Star::Star(const std::string &Name, const Coordinates Position)
+Star::Star(const std::string &name, const Coordinates position)
 {
-    this->Name = Name;
-    this->Position = Position;
+    this->name = name;
+    this->position = position;
 }
 
-Galaxy_Object::Coordinates Star::getPosition() const
+GalaxyObject::Coordinates Star::getPosition() const
 {
-    return Position;
+    return position;
 }
 
-void ChangePosition(Star *Star, Galaxy_Object::Coordinates Position) {
-    Star->Position = Position;
+void ChangePosition(Star *star, GalaxyObject::Coordinates position)
+{
+    star->position = position;
 }

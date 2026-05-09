@@ -2,16 +2,17 @@
 #define FASTTRAVELOBJECT_H
 #include "Galaxy_Object.h"
 
-class FastTravelObject : protected Galaxy_Object{
+class FastTravelObject : protected GalaxyObject
+{
 protected:
-    Coordinates Entry{};
-    Coordinates Exit{};
+    Coordinates entry{};
+    Coordinates exit{};
 public:
-    FastTravelObject(Coordinates Entry, Coordinates Exit);
+    FastTravelObject(Coordinates entry, Coordinates exit);
 
-    virtual void travel(Galaxy_Object* Galaxy_Object) = 0;
-    virtual bool isOnEntry(Galaxy_Object* Galaxy_Object) = 0;
-    virtual bool isOnExit(Galaxy_Object* Galaxy_Object) = 0;
+    virtual void travel(GalaxyObject* galaxyObject) = 0;
+    virtual bool isOnEntry(GalaxyObject* galaxyObject) = 0;
+    virtual bool isOnExit(GalaxyObject* galaxyObject) = 0;
     [[nodiscard]] virtual Coordinates getEntry() const = 0;
     [[nodiscard]] virtual Coordinates getExit() const = 0;
 

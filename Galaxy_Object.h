@@ -1,25 +1,26 @@
 #ifndef GALAXY_H
 #define GALAXY_H
 
-class Galaxy_Object {
+class GalaxyObject
+{
 public:
     struct Coordinates
     {
-        double X;
-        double Y;
+        double x;
+        double y;
 
         bool operator==(const Coordinates &other) const {
-            return X == other.X && Y == other.Y;
+            return x == other.x && y == other.y;
         }
     };
-    Coordinates Position{};
-    static int Tick;
+    Coordinates position{};
+    static int tick;
 
-    Galaxy_Object() = default;
+    GalaxyObject() = default;
 
-    virtual ~Galaxy_Object() = default;
+    virtual ~GalaxyObject() = default;
 
-    explicit Galaxy_Object(Coordinates Position);
+    explicit GalaxyObject(Coordinates position);
 
     static void IterateTick();
 };

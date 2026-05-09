@@ -5,13 +5,13 @@
 class TransportSpaceShip : public SpaceShip
 {
 protected:
-    int Capacity;
-    int MaxCapacity;
-    TransportSpaceShip(float TopSpeed, int OperatingCosts, Coordinates Position, const std::string& PropulsionMethod, int MaxCapacity);
+    int capacity;
+    int maxCapacity;
+    TransportSpaceShip(float topSpeed, int operatingCosts, Coordinates position, const std::string& propulsionMethod, int maxCapacity);
 
 public:
     void ShowInformation() const;
-    void LoadShip(int Load);
+    void LoadShip(int load);
 };
 
 #endif //TRANSPORTSPACESHIP_H

@@ -3,13 +3,14 @@
 #include <iostream>
 #include <ostream>
 
-Vehicle::Vehicle(const Coordinates Position, const float TopSpeed, const int OperatingCosts) : Galaxy_Object(Position)
+Vehicle::Vehicle(const Coordinates position, const float topSpeed, const int operatingCosts) : GalaxyObject(position)
 {
-    this->TopSpeed = TopSpeed;
-    this->OperatingCosts = OperatingCosts;
+    this->topSpeed = topSpeed;
+    this->operatingCosts = operatingCosts;
 }
 
-void Vehicle::ShowInformation() const {
-    std::cout << "Top Speed: " << TopSpeed << ", Operating Costs: " << OperatingCosts;
+void Vehicle::ShowInformation() const
+{
+    std::cout << "Top Speed: " << topSpeed << ", Operating Costs: " << operatingCosts;
 }
 

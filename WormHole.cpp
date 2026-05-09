@@ -1,28 +1,28 @@
 #include "WormHole.h"
 
-WormHole::WormHole(const Coordinates Entry, const Coordinates Exit): FastTravelObject(Entry, Exit){}
+WormHole::WormHole(const Coordinates entry, const Coordinates exit): FastTravelObject(entry, exit){}
 
-void WormHole::travel(Galaxy_Object *Galaxy_Object)
+void WormHole::travel(GalaxyObject *galaxyObject)
 {
-    isOnEntry(Galaxy_Object) ? Galaxy_Object->Position = Exit : Galaxy_Object->Position;
+    isOnEntry(galaxyObject) ? galaxyObject->position = exit : galaxyObject->position;
 }
 
-bool WormHole::isOnEntry(Galaxy_Object* Galaxy_Object)
+bool WormHole::isOnEntry(GalaxyObject* galaxyObject)
 {
-    return Galaxy_Object->Position == Entry;
+    return galaxyObject->position == entry;
 }
 
-bool WormHole::isOnExit(Galaxy_Object* Galaxy_Object)
+bool WormHole::isOnExit(GalaxyObject* galaxyObject)
 {
-    return Galaxy_Object->Position == Exit;
+    return galaxyObject->position == exit;
 }
 
-Galaxy_Object::Coordinates WormHole::getEntry() const
+GalaxyObject::Coordinates WormHole::getEntry() const
 {
-    return Entry;
+    return entry;
 }
 
-Galaxy_Object::Coordinates WormHole::getExit() const
+GalaxyObject::Coordinates WormHole::getExit() const
 {
-    return Exit;
+    return exit;
 }

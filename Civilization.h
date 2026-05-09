@@ -16,14 +16,14 @@ class SpaceShip;
 class Civilization
 {
 private:
-    long int PopulationInMillions;
-    double MilitaryRating;
-    std::string Name;
-    std::vector<SpaceShip*> Fleet;
-    std::vector<Resource*> Resources{};
+    long int populationInMillions;
+    double militaryRating;
+    std::string name;
+    std::vector<SpaceShip*> fleet;
+    std::vector<Resource*> resources{};
 
 public:
-    Civilization(const std::string &Name, long int PopulationInMillions, double MilitaryRating);
+    Civilization(const std::string &name, long int populationInMillions, double militaryRating);
 
     ~Civilization();
 
@@ -39,15 +39,15 @@ public:
 
     [[nodiscard]] double getMilitaryCapabilities() const;
 
-    void SufferLosses(long int Losses);
+    void SufferLosses(long int losses);
 
-    void ExtractResources(Planet* Planet, Resource* Resource);
+    void ExtractResources(Planet* planet, Resource* resource);
 
     void ConstructSpaceship();
 
-    void ResearchPlanet(Planet* Planet);
+    void ResearchPlanet(Planet* planet);
 
-    void ManipulateMarket(const GalacticMarket* GalacticMarket, float Price, int ListingNumber);
+    void ManipulateMarket(const GalacticMarket* galacticMarket, float price, int listingNumber);
 
 };
 

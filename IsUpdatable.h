@@ -1,7 +1,8 @@
 #ifndef ISUPDATABLE_H
 #define ISUPDATABLE_H
 
-class IsUpdatable {
+class IsUpdatable
+{
 public:
     bool isPaused{};
     int lastUpdate{};

@@ -1,11 +1,11 @@
 #include "Resource.h"
 
-Resource::Resource(const std::string &Type)
+Resource::Resource(const std::string &type)
 {
-    this->Type = Type;
+    this->type = type;
 }
 
 std::string Resource::getType()
 {
-    return Type;
+    return type;
 }

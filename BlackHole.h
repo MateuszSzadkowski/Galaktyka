@@ -2,18 +2,19 @@
 #define BLACKHOLE_H
 #include "Galaxy_Object.h"
 
-class BlackHole : Galaxy_Object {
+class BlackHole : public GalaxyObject
+{
 private:
-    float MassesOfSun;
-    float EventHorizon;
+    float massesOfSun;
+    float eventHorizon;
 
 public:
-    BlackHole(Coordinates Position, float MassesOfSun);
+    BlackHole(Coordinates position, float massesOfSun);
 
-    friend void ChangePosition(BlackHole* BlackHole, Coordinates Position);
+    friend void ChangePosition(BlackHole* blackHole, Coordinates position);
 
 };
 
-void ChangePosition(BlackHole* BlackHole, Galaxy_Object::Coordinates Position);
+void ChangePosition(BlackHole* blackHole, GalaxyObject::Coordinates position);
 
 #endif //BLACKHOLE_H

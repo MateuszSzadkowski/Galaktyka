@@ -9,14 +9,14 @@ class Civilization;
 class SpaceShip : public Vehicle
 {
 protected:
-    std::string PropulsionMethod;
-    SpaceShip(float TopSpeed, int OperatingCosts, Coordinates Position, const std::string& PropulsionMethod);
+    std::string propulsionMethod;
+    SpaceShip(float topSpeed, int operatingCosts, Coordinates position, const std::string& propulsionMethod);
 
-    friend void ChangePosition(SpaceShip* SpaceShip, Coordinates Position);
+    friend void ChangePosition(SpaceShip* spaceShip, Coordinates position);
     void ShowInformation() const;
 
 };
 
-void ChangePosition(SpaceShip* SpaceShip, Galaxy_Object::Coordinates Position);
+void ChangePosition(SpaceShip* spaceShip, GalaxyObject::Coordinates position);
 
 #endif //SPACESHIP_H

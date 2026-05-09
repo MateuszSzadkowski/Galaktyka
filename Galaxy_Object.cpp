@@ -1,11 +1,13 @@
 #include "Galaxy_Object.h"
 
-int Galaxy_Object::Tick = 0;
+int GalaxyObject::tick = 0;
 
-Galaxy_Object::Galaxy_Object(const Coordinates Position) {
-        this->Position = Position;
+GalaxyObject::GalaxyObject(const Coordinates position)
+{
+        this->position = position;
 }
 
-static void IterateTick() {
-        Galaxy_Object::Tick++;
+static void IterateTick()
+{
+        GalaxyObject::tick++;
 }

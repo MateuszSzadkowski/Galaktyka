@@ -1,48 +1,50 @@
 #include "Civilization.h"
 #include <iostream>
 
-Civilization::Civilization(const std::string &Name, const long int PopulationInMillions, const double MilitaryRating) {
-    this->Name = Name;
-    this->PopulationInMillions = PopulationInMillions;
-    if (MilitaryRating >= 0 && MilitaryRating <= 2)
-        this->MilitaryRating = MilitaryRating;
+Civilization::Civilization(const std::string &name, const long int populationInMillions, const double militaryRating)
+{
+    this->name = name;
+    this->populationInMillions = populationInMillions;
+    if (militaryRating >= 0 && militaryRating <= 2)
+        this->militaryRating = militaryRating;
     else
-        this->MilitaryRating = 0;
+        this->militaryRating = 0;
 }
 
 Civilization::~Civilization()
 {
-    for(const auto & i : Fleet)
+    for(const auto & i : fleet)
     {
         delete i;
     }
 }
 
-void Civilization::ShowInformation() const {
-    std::cout << "Name: " << Name << std::endl << "Population: " << PopulationInMillions << " mil." << std::endl << "Military Rating: " << MilitaryRating << std::endl;
+void Civilization::ShowInformation() const
+{
+    std::cout << "Name: " << name << std::endl << "Population: " << populationInMillions << " mil." << std::endl << "Military Rating: " << militaryRating << std::endl;
 }
 
 long long int Civilization::getPopulation() const
 {
-    return PopulationInMillions;
+    return populationInMillions;
 }
 
 std::string Civilization::getName() const
 {
-    return Name;
+    return name;
 }
 
 double Civilization::getMilitaryCapabilities() const
 {
-    return MilitaryRating * PopulationInMillions;
+    return militaryRating * populationInMillions;
 }
 
-void Civilization::SufferLosses(long int Losses)
+void Civilization::SufferLosses(long int losses)
 {
-    PopulationInMillions -= Losses;
+    populationInMillions -= losses;
 }
 
-void Civilization::ExtractResources(Planet* Planet, Resource* Resource)
+void Civilization::ExtractResources(Planet* planet, Resource* resource)
 {
 
 }
@@ -52,12 +54,12 @@ void Civilization::ConstructSpaceship()
 
 }
 
-void Civilization::ResearchPlanet(Planet* Planet) {
-    std::cout << "Planet's distance form star: " << Planet->DistanceFromBarycenter << std::endl << "Planets Revolution Time: " << Planet->CalculateRevolutionTime() << std::endl;
+void Civilization::ResearchPlanet(Planet* planet)
+{
+    std::cout << "Planet's distance form star: " << planet->distanceFromBarycenter << std::endl << "Planets Revolution Time: " << planet->CalculateRevolutionTime() << std::endl;
 }
 
-void Civilization::ManipulateMarket(const GalacticMarket* GalacticMarket, const float Price, const int ListingNumber) {
-
-    GalacticMarket->Listings[ListingNumber].PricePerUnit -= Price;
-
+void Civilization::ManipulateMarket(const GalacticMarket* galacticMarket, const float price, const int listingNumber)
+{
+    galacticMarket->listings[listingNumber].pricePerUnit -= price;
 }

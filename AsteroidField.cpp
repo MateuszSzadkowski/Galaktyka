@@ -1,11 +1,12 @@
 #include "AsteroidField.h"
 
-AsteroidField::AsteroidField(const Coordinates Position, const float Size, const float Density) : Galaxy_Object(Position)
+AsteroidField::AsteroidField(const Coordinates position, const float size, const float density) : GalaxyObject(position)
 {
-    this->Size = Size;
-    this->Density = Density;
+    this->size = size;
+    this->density = density;
 }
 
-void ChangePosition(AsteroidField* AsteroidField, const Galaxy_Object::Coordinates Position) {
-    AsteroidField->Position = Position;
+void ChangePosition(AsteroidField* asteroidField, const GalaxyObject::Coordinates position)
+{
+    asteroidField->position = position;
 }

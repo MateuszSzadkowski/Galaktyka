@@ -3,12 +3,13 @@
 
 #include "TransportSpaceShip.h"
 
-class PeopleCarrier : public TransportSpaceShip {
+class PeopleCarrier : public TransportSpaceShip
+{
 public:
-    Civilization* TransportedCivilization{};
+    Civilization* transportedCivilization{};
 
-    explicit PeopleCarrier(Coordinates Position);
-    void LoadShip(int Load, Civilization* Civilization);
+    explicit PeopleCarrier(Coordinates position);
+    void LoadShip(int load, Civilization* civilization);
     void ShowInformation() const;
 };
 

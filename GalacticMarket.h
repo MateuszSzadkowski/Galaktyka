@@ -4,15 +4,16 @@
 #include "Resource.h"
 #include <vector>
 
-class GalacticMarket {
+class GalacticMarket
+{
 private:
     struct Listing
     {
-        Resource Resource;
-        int Quantity{};
-        mutable float PricePerUnit{};
+        Resource resource;
+        int quantity{};
+        mutable float pricePerUnit{};
     };
-    std::vector<Listing> Listings;
+    std::vector<Listing> listings;
 
 public:
 
@@ -20,9 +21,9 @@ public:
 
     void AddListing(const Listing& newListing);
 
-    static void PrintListing(Listing Listing);
+    static void PrintListing(Listing listing);
 
-    void PrintPageOfListings(int Page) const;
+    void PrintPageOfListings(int page) const;
 
 };
 

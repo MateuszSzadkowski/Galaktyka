@@ -4,13 +4,14 @@
 #include <vector>
 #include "Civilization.h"
 
-class Coalition {
+class Coalition
+{
 private:
-    std::vector<Civilization*> CoalitionParties;
-    float CoalitionStrength;
+    std::vector<Civilization*> coalitionParties;
+    float coalitionStrength;
 
 public:
-    Coalition(std::initializer_list<Civilization*> CoalitionParties, float CoalitionStrength);
+    Coalition(std::initializer_list<Civilization*> coalitionParties, float coalitionStrength);
 
 };
 

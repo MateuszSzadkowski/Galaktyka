@@ -1,11 +1,12 @@
 #include "BlackHole.h"
 
-BlackHole::BlackHole(const Coordinates Position, const float MassesOfSun): Galaxy_Object(Position) {
-    this->MassesOfSun = MassesOfSun;
-    this->EventHorizon = 2.95f * MassesOfSun;
+BlackHole::BlackHole(const Coordinates position, const float massesOfSun): GalaxyObject(position)
+{
+    this->massesOfSun = massesOfSun;
+    this->eventHorizon = 2.95f * massesOfSun;
 }
 
-void ChangePosition(BlackHole* BlackHole, const Galaxy_Object::Coordinates Position)
+void ChangePosition(BlackHole* blackHole, const GalaxyObject::Coordinates position)
 {
-    BlackHole->Position = Position;
+    blackHole->position = position;
 }

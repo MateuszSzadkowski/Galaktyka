@@ -3,18 +3,20 @@
 #include <iostream>
 #include <ostream>
 
-SpaceShip::SpaceShip(const float TopSpeed, const int OperatingCosts, const Galaxy_Object::Coordinates Position,
-                     const std::string& PropulsionMethod) : Vehicle(Position, TopSpeed, OperatingCosts)
+SpaceShip::SpaceShip(const float topSpeed, const int operatingCosts, const GalaxyObject::Coordinates position,
+                     const std::string& propulsionMethod) : Vehicle(position, topSpeed, operatingCosts)
 {
-    this->PropulsionMethod = PropulsionMethod;
+    this->propulsionMethod = propulsionMethod;
 }
 
-void SpaceShip::ShowInformation() const {
+void SpaceShip::ShowInformation() const
+{
     Vehicle::ShowInformation();
-    std::cout << ", Propulsion Method: " << PropulsionMethod;
+    std::cout << ", Propulsion Method: " << propulsionMethod;
 }
 
 
-void ChangePosition(SpaceShip *SpaceShip, const Galaxy_Object::Coordinates Position) {
-    SpaceShip->Position = Position;
+void ChangePosition(SpaceShip *spaceShip, const GalaxyObject::Coordinates position)
+{
+    spaceShip->position = position;
 }

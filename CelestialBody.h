@@ -4,13 +4,14 @@
 #include <string>
 
 
-class CelestialBody : public Galaxy_Object{
+class CelestialBody : public GalaxyObject
+{
     public:
-    Coordinates Barycenter{};
-    float DistanceFromBarycenter;
-    float RevolutionSpeed;
+    Coordinates barycenter{};
+    float distanceFromBarycenter;
+    float revolutionSpeed;
 
-    CelestialBody(Coordinates Barycenter, float DistanceFromBarycenter, float RevolutionSpeed);
+    CelestialBody(Coordinates barycenter, float distanceFromBarycenter, float revolutionSpeed);
     ~CelestialBody() override = default;
 
     virtual float getRevolutionSpeed() = 0;

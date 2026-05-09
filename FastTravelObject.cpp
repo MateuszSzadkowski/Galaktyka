@@ -1,7 +1,7 @@
 #include "FastTravelObject.h"
 
-FastTravelObject::FastTravelObject(const Coordinates Entry, const Coordinates Exit)
+FastTravelObject::FastTravelObject(const Coordinates entry, const Coordinates exit)
 {
-    this->Entry = Entry;
-    this->Exit = Exit;
+    this->entry = entry;
+    this->exit = exit;
 }

@@ -2,18 +2,19 @@
 #define ASTEROIDFIELD_H
 #include "Galaxy_Object.h"
 
-class AsteroidField : Galaxy_Object {
+class AsteroidField : public GalaxyObject
+{
 private:
-    float Size;
-    float Density;
+    float size;
+    float density;
 
 public:
-    AsteroidField(Coordinates Position, float Size, float Density);
+    AsteroidField(Coordinates position, float size, float density);
 
-    friend void ChangePosition(AsteroidField* AsteroidField, Coordinates Position);
+    friend void ChangePosition(AsteroidField* asteroidField, Coordinates position);
 
 };
 
-void ChangePosition(AsteroidField* AsteroidField, Galaxy_Object::Coordinates Position);
+void ChangePosition(AsteroidField* asteroidField, GalaxyObject::Coordinates position);
 
 #endif //ASTEROIDFIELD_H

@@ -5,18 +5,19 @@
 
 #include "Galaxy_Object.h"
 
-class Star : Galaxy_Object {
+class Star : public GalaxyObject
+{
 private:
-    std::string Name;
+    std::string name;
 
 public:
-    Star(const std::string &Name, Coordinates Position);
+    Star(const std::string &name, Coordinates position);
 
-    friend void ChangePosition(Star* Star, Coordinates Position);
+    friend void ChangePosition(Star* star, Coordinates position);
 
     [[nodiscard]] Coordinates getPosition() const;
 };
 
-void ChangePosition(Star* Star, Galaxy_Object::Coordinates Position);
+void ChangePosition(Star* star, GalaxyObject::Coordinates position);
 
 #endif //STAR_H

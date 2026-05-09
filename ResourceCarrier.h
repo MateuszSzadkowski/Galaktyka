@@ -2,9 +2,10 @@
 #define RESOURCECARRIER_H
 #include "TransportSpaceShip.h"
 
-class ResourceCarrier : public TransportSpaceShip{
+class ResourceCarrier : public TransportSpaceShip
+{
 public:
-    explicit ResourceCarrier(Coordinates Position);
+    explicit ResourceCarrier(Coordinates position);
 };
 
 #endif //RESOURCECARRIER_H

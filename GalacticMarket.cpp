@@ -3,32 +3,33 @@
 
 void GalacticMarket::AddListing(const Listing& newListing)
 {
-    Listings.push_back(newListing);
+    listings.push_back(newListing);
 }
 
-void GalacticMarket::PrintListing(Listing Listing)
+void GalacticMarket::PrintListing(Listing listing)
 {
-    std::cout << "Resource: " << Listing.Resource.getType() << " Quantity: " << Listing.Quantity << " Price for one: " << Listing.PricePerUnit << std::endl;
+    std::cout << "Resource: " << listing.resource.getType() << " Quantity: " << listing.quantity << " Price for one: " << listing.pricePerUnit << std::endl;
 }
 
-void GalacticMarket::PrintPageOfListings(const int Page) const {
-    if (Listings.empty())
+void GalacticMarket::PrintPageOfListings(const int page) const
+{
+    if (listings.empty())
         std::cout << "No Listings available on the market." << std::endl;
-    else if (Listings.size() <= 10 * Page)
+    else if (listings.size() <= 10 * page)
         std::cout << "This page is not available" << std::endl;
-    else if (Listings.size() >= 10 * Page + 10)
+    else if (listings.size() >= 10 * page + 10)
     {
-        for (int i = 10 * Page; i < 10 * Page + 10; i++)
+        for (int i = 10 * page; i < 10 * page + 10; i++)
         {
-            PrintListing(Listings[i]);
+            PrintListing(listings[i]);
         }
         std::cout << std::endl;
     }
-    else if (Listings.size() > 10 * Page && Listings.size() < 10 * Page + 10)
+    else if (listings.size() > 10 * page && listings.size() < 10 * page + 10)
     {
-        for (int i = 10 * Page; i < Listings.size(); i++)
+        for (int i = 10 * page; i < listings.size(); i++)
         {
-            PrintListing(Listings[i]);
+            PrintListing(listings[i]);
         }
         std::cout << std::endl;
     }

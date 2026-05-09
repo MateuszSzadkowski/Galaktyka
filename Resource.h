@@ -6,10 +6,10 @@
 class Resource
 {
 private:
-    std::string Type;
+    std::string type;
 
 public:
-    explicit Resource(const std::string &Type);
+    explicit Resource(const std::string &type);
 
     std::string getType();
 

@@ -12,31 +12,32 @@
 
 class Civilization;
 
-class Planet : public CelestialBody, IsUpdatable{
+class Planet : public CelestialBody, public IsUpdatable
+{
 private:
-	std::string Name;
-	std::vector<Civilization*> Inhabitants;
-	std::vector<Resource*> AvailableResources{};
+	std::string name;
+	std::vector<Civilization*> inhabitants;
+	std::vector<Resource*> availableResources{};
 
 public:
-	Planet(const std::string &Name, std::initializer_list<Civilization *> Inhabitants, Coordinates Barycenter,
-	       float DistanceFromBarycenter, float RevolutionSpeed, std::initializer_list<Resource *> AvailableResources);
+	Planet(const std::string &name, std::initializer_list<Civilization *> inhabitants, Coordinates barycenter,
+	       float distanceFromBarycenter, float revolutionSpeed, std::initializer_list<Resource *> availableResources);
 
 	~Planet() override;
 
 	friend class Civilization;
 
-	friend void ChangePosition(Planet* Planet, Coordinates Position);
+	friend void ChangePosition(Planet* planet, Coordinates position);
 
-	void UpdatePosition(int Tick) override;
+	void UpdatePosition(int tick) override;
 
 	void ShowInformation() override;
 
-	void WipeCivilisation(int CivilisationIndex);
+	void WipeCivilisation(int civilisationIndex);
 
-	[[nodiscard]] bool CompareStrengths(int AttackersIndex, int DefendersIndex) const;
+	[[nodiscard]] bool CompareStrengths(int attackersIndex, int defendersIndex) const;
 
-	void CivilisationsWar(int AttackersIndex, int DefendersIndex);
+	void CivilisationsWar(int attackersIndex, int defendersIndex);
 
 	[[nodiscard]] float getCombinedMilitaryCapabilities() const;
 
@@ -52,8 +53,10 @@ public:
 
 	void Update() override;
 
+
+
 };
 
-void ChangePosition(Planet* Planet, Galaxy_Object::Coordinates Position);
+void ChangePosition(Planet* planet, GalaxyObject::Coordinates position);
 
 #endif //PLANET_H

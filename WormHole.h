@@ -4,13 +4,14 @@
 #include "FastTravelObject.h"
 #include "Galaxy_Object.h"
 
-class WormHole final : FastTravelObject {
+class WormHole final : public FastTravelObject
+{
 public:
-    WormHole(Coordinates Entry, Coordinates Exit);
+    WormHole(Coordinates entry, Coordinates exit);
 
-    void travel(Galaxy_Object *Galaxy_Object) override;
-    bool isOnEntry(Galaxy_Object* Galaxy_Object) override;
-    bool isOnExit(Galaxy_Object* Galaxy_Object) override;
+    void travel(GalaxyObject *galaxyObject) override;
+    bool isOnEntry(GalaxyObject* galaxyObject) override;
+    bool isOnExit(GalaxyObject* galaxyObject) override;
     [[nodiscard]] Coordinates getEntry() const override;
     [[nodiscard]] Coordinates getExit() const override;
 

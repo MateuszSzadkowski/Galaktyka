@@ -4,117 +4,121 @@
 
 #define PI 3.14159265
 
-Planet::Planet(const std::string &Name, const std::initializer_list<Civilization *> Inhabitants, const Coordinates Barycenter,
-               const float DistanceFromBarycenter, const float RevolutionSpeed,
-               const std::initializer_list<Resource *> AvailableResources) : CelestialBody(Barycenter, DistanceFromBarycenter, RevolutionSpeed){
-	this->Name = Name;
-	this->Inhabitants = Inhabitants;
-	this->Position = {Barycenter.X + DistanceFromBarycenter, Barycenter.Y};
-	this->AvailableResources = AvailableResources;
+Planet::Planet(const std::string &name, const std::initializer_list<Civilization *> inhabitants, const Coordinates barycenter,
+               const float distanceFromBarycenter, const float revolutionSpeed,
+               const std::initializer_list<Resource *> availableResources) : CelestialBody(barycenter, distanceFromBarycenter, revolutionSpeed)
+{
+	this->name = name;
+	this->inhabitants = inhabitants;
+	this->position = {barycenter.x + distanceFromBarycenter, barycenter.y};
+	this->availableResources = availableResources;
 }
 
 Planet::~Planet()
 {
-	for(const auto & Inhabitant : Inhabitants)
+	for(const auto & inhabitant : inhabitants)
 	{
-		delete Inhabitant;
+		delete inhabitant;
 	}
 }
 
 int Planet::CalculateRevolutionTime()
 {
-	return static_cast<int>(2 * PI * DistanceFromBarycenter / RevolutionSpeed);
+	return static_cast<int>(2 * PI * distanceFromBarycenter / revolutionSpeed);
 }
 
-void Planet::UpdatePosition(const int Tick)
+void Planet::UpdatePosition(const int tick)
 {
-	const double Degree = 2 * PI * ( ( Tick % CalculateRevolutionTime() ) / static_cast<double>(CalculateRevolutionTime()) );
-	Position = { Barycenter.X + sin(Degree) * DistanceFromBarycenter, Barycenter.Y + cos(Degree) * DistanceFromBarycenter };
+	const double degree = 2 * PI * ( ( tick % CalculateRevolutionTime() ) / static_cast<double>(CalculateRevolutionTime()) );
+	position = { barycenter.x + sin(degree) * distanceFromBarycenter, barycenter.y + cos(degree) * distanceFromBarycenter };
 }
 
 void Planet::ShowInformation()
 {
-	std::cout << "Planet: " << Name << ", " << DistanceFromBarycenter << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
-	for (int i = 0; i < Inhabitants.size(); i++)
+	std::cout << "Planet: " << name << ", " << distanceFromBarycenter << " Light minutes from it's star." << std::endl << "Civilisations: " << std::endl << std::endl;
+	for (int i = 0; i < inhabitants.size(); i++)
 	{
 		std::cout << i << "." << std::endl;
-		Inhabitants[i]->ShowInformation();
+		inhabitants[i]->ShowInformation();
 		std::cout << std::endl;
 	}
 }
 
-void Planet::WipeCivilisation(const int CivilisationIndex)
+void Planet::WipeCivilisation(const int civilisationIndex)
 {
-	delete Inhabitants[CivilisationIndex];
-	Inhabitants.erase(Inhabitants.begin() + CivilisationIndex);
+	delete inhabitants[civilisationIndex];
+	inhabitants.erase(inhabitants.begin() + civilisationIndex);
 }
 
-bool Planet::CompareStrengths(const int AttackersIndex, const int DefendersIndex) const
+bool Planet::CompareStrengths(const int attackersIndex, const int defendersIndex) const
 {
-	if (Inhabitants[AttackersIndex]->getMilitaryCapabilities() > Inhabitants[DefendersIndex]->getMilitaryCapabilities())
+	if (inhabitants[attackersIndex]->getMilitaryCapabilities() > inhabitants[defendersIndex]->getMilitaryCapabilities())
 		return true;
 	else
 		return false;
 }
 
-void Planet::CivilisationsWar(const int AttackersIndex, const int DefendersIndex)
+void Planet::CivilisationsWar(const int attackersIndex, const int defendersIndex)
 {
-	std::cout << Inhabitants[AttackersIndex]->getName() << " attacked " << Inhabitants[DefendersIndex]->getName() << std::endl;
-	if (CompareStrengths(AttackersIndex, DefendersIndex))
+	std::cout << inhabitants[attackersIndex]->getName() << " attacked " << inhabitants[defendersIndex]->getName() << std::endl;
+	if (CompareStrengths(attackersIndex, defendersIndex))
 	{
-		Inhabitants[AttackersIndex]->SufferLosses(static_cast<long>(Inhabitants[DefendersIndex]->getMilitaryCapabilities()));
-		std::cout << Inhabitants[AttackersIndex]->getName() << " won." << std::endl << std::endl;
-		WipeCivilisation(DefendersIndex);
+		inhabitants[attackersIndex]->SufferLosses(static_cast<long>(inhabitants[defendersIndex]->getMilitaryCapabilities()));
+		std::cout << inhabitants[attackersIndex]->getName() << " won." << std::endl << std::endl;
+		WipeCivilisation(defendersIndex);
 	}
 	else
 	{
-		Inhabitants[DefendersIndex]->SufferLosses(static_cast<long>(Inhabitants[DefendersIndex]->getMilitaryCapabilities()));
-		std::cout << Inhabitants[DefendersIndex]->getName() << " won." << std::endl << std::endl;
-		WipeCivilisation(AttackersIndex);
+		inhabitants[defendersIndex]->SufferLosses(static_cast<long>(inhabitants[defendersIndex]->getMilitaryCapabilities()));
+		std::cout << inhabitants[defendersIndex]->getName() << " won." << std::endl << std::endl;
+		WipeCivilisation(attackersIndex);
 	}
 }
 
 float Planet::getCombinedMilitaryCapabilities() const {
-	float Sum = 0;
-	for(const auto Inhabitant : Inhabitants)
+	float sum = 0;
+	for(const auto inhabitant : inhabitants)
 	{
-		Sum = static_cast<float>(Sum + Inhabitant->getMilitaryCapabilities());
+		sum = static_cast<float>(sum + inhabitant->getMilitaryCapabilities());
 	}
-	return Sum;
+	return sum;
 }
 
 float Planet::getRevolutionSpeed() {
-	return RevolutionSpeed;
+	return revolutionSpeed;
 }
 
 std::string Planet::getName()
 {
-	return Name;
+	return name;
 }
 
-Galaxy_Object::Coordinates Planet::getPosition()
+GalaxyObject::Coordinates Planet::getPosition()
 {
-	return Position;
+	return position;
 }
 
 void Planet::GlobalWarming()
 {
-	for(const auto Inhabitant : Inhabitants)
+	for(const auto inhabitant : inhabitants)
 	{
-		Inhabitant->PopulationInMillions = static_cast<int>(Inhabitant->getMilitaryCapabilities() * 0.9);
+		// Wait, populationInMillions is a private member in Civilization, but wait, it was PopulationInMillions before.
+		// Wait, did I rename it? Yes, populationInMillions.
+		// Wait, Planet is a friend of Civilization, so it can access it.
+		// Wait! Let me check the original file: Inhabitant->PopulationInMillions. Let me rename to populationInMillions.
+		inhabitant->populationInMillions = static_cast<int>(inhabitant->getMilitaryCapabilities() * 0.9);
 	}
 }
 
 void Planet::Update()
 {
 	if(!isPaused) {
-		UpdatePosition(Tick);
-		lastUpdate = Tick;
+		UpdatePosition(tick);
+		lastUpdate = tick;
 	}
 }
 
-void ChangePosition(Planet *Planet, const Galaxy_Object::Coordinates Position)
+void ChangePosition(Planet *planet, const GalaxyObject::Coordinates position)
 {
-	Planet->Position = Position;
+	planet->position = position;
 }
-

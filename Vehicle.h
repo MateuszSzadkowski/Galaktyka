@@ -3,13 +3,13 @@
 
 #include "Galaxy_Object.h"
 
-class Vehicle : public Galaxy_Object
+class Vehicle : public GalaxyObject
 {
 protected:
-    float TopSpeed;
-    int OperatingCosts;
+    float topSpeed;
+    int operatingCosts;
 
-    Vehicle(Coordinates Position, float TopSpeed, int OperatingCosts);
+    Vehicle(Coordinates position, float topSpeed, int operatingCosts);
     void ShowInformation() const;
 
 };
