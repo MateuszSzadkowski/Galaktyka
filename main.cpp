@@ -27,7 +27,7 @@ int main()
 
     auto* resourceCarrier1 = new ResourceCarrier({0,0});
 
-    const auto earth = new Planet("Earth", { humans, martians }, {sun->getPosition().x, sun->getPosition().y}, 7, 365, {stone, diamond, wood});
+    const auto earth = new Planet("Earth", {sun->getPosition().x, sun->getPosition().y}, 7, 365, {stone, diamond, wood});
 
     earth->ShowInformation();
 

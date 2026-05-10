@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class Star : public GalaxyObject
 {

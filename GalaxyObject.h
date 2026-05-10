@@ -15,6 +15,8 @@ public:
     };
     Coordinates position{};
     static int tick;
+    static unsigned long long int numberOfObjects;
+    unsigned long long int id{};
 
     GalaxyObject() = default;
 
@@ -22,7 +24,7 @@ public:
 
     explicit GalaxyObject(Coordinates position);
 
-    static void IterateTick();
+    static void iterateTick();
 };
 
 #endif //GALAXY_H

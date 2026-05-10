@@ -2,7 +2,7 @@
 #define WORMHOLE_H
 
 #include "FastTravelObject.h"
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class WormHole final : public FastTravelObject
 {

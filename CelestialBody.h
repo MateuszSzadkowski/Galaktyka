@@ -1,6 +1,6 @@
 #ifndef CELESITALBODY_H
 #define CELESITALBODY_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 #include <string>
 
 

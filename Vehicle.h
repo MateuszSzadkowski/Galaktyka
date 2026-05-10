@@ -1,16 +1,17 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
-class Vehicle : public GalaxyObject
+class Vehicle : protected GalaxyObject
 {
 protected:
     float topSpeed;
     int operatingCosts;
 
     Vehicle(Coordinates position, float topSpeed, int operatingCosts);
-    void ShowInformation() const;
+
+    virtual void ShowInformation() const;
 
 };
 

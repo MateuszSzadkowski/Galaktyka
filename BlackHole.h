@@ -1,6 +1,6 @@
 #ifndef BLACKHOLE_H
 #define BLACKHOLE_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class BlackHole : public GalaxyObject
 {

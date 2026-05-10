@@ -1,6 +1,6 @@
 #ifndef FASTTRAVELOBJECT_H
 #define FASTTRAVELOBJECT_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class FastTravelObject : protected GalaxyObject
 {

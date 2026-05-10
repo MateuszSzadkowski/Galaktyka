@@ -24,8 +24,8 @@ add_executable(Galaktyka_Clion main.cpp
         GalacticMarket.h
         Coalition.cpp
         Coalition.h
-        Galaxy_Object.cpp
-        Galaxy_Object.h
+        GalaxyObject.cpp
+        GalaxyObject.h
         Vehicle.cpp
         Vehicle.h
         TransportSpaceShip.cpp
@@ -43,4 +43,11 @@ add_executable(Galaktyka_Clion main.cpp
         RandomMapGenerator.cpp
         RandomMapGenerator.h
         MapGenerator.cpp
-        MapGenerator.h)
+        MapGenerator.h
+        Specialisation.cpp
+        Specialisation.h
+        Soldier.cpp
+        Soldier.h
+        Citizen.cpp
+        Citizen.h
+)

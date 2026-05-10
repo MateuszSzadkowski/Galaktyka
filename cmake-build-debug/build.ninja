@@ -115,8 +115,8 @@ build CMakeFiles/Galaktyka_Clion.dir/Coalition.cpp.obj: CXX_COMPILER__Galaktyka_
   OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
   OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
 
-build CMakeFiles/Galaktyka_Clion.dir/Galaxy_Object.cpp.obj: CXX_COMPILER__Galaktyka_Clion_unscanned_Debug C$:/Users/szadk/Desktop/Studia/Programowanie$ obiektowe/Galaktyka_Clion/Galaxy_Object.cpp || cmake_object_order_depends_target_Galaktyka_Clion
-  DEP_FILE = CMakeFiles\Galaktyka_Clion.dir\Galaxy_Object.cpp.obj.d
+build CMakeFiles/Galaktyka_Clion.dir/GalaxyObject.cpp.obj: CXX_COMPILER__Galaktyka_Clion_unscanned_Debug C$:/Users/szadk/Desktop/Studia/Programowanie$ obiektowe/Galaktyka_Clion/GalaxyObject.cpp || cmake_object_order_depends_target_Galaktyka_Clion
+  DEP_FILE = CMakeFiles\Galaktyka_Clion.dir\GalaxyObject.cpp.obj.d
   FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
   OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
@@ -175,6 +175,24 @@ build CMakeFiles/Galaktyka_Clion.dir/MapGenerator.cpp.obj: CXX_COMPILER__Galakty
   OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
   OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
 
+build CMakeFiles/Galaktyka_Clion.dir/Specialisation.cpp.obj: CXX_COMPILER__Galaktyka_Clion_unscanned_Debug C$:/Users/szadk/Desktop/Studia/Programowanie$ obiektowe/Galaktyka_Clion/Specialisation.cpp || cmake_object_order_depends_target_Galaktyka_Clion
+  DEP_FILE = CMakeFiles\Galaktyka_Clion.dir\Specialisation.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
+  OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
+
+build CMakeFiles/Galaktyka_Clion.dir/Soldier.cpp.obj: CXX_COMPILER__Galaktyka_Clion_unscanned_Debug C$:/Users/szadk/Desktop/Studia/Programowanie$ obiektowe/Galaktyka_Clion/Soldier.cpp || cmake_object_order_depends_target_Galaktyka_Clion
+  DEP_FILE = CMakeFiles\Galaktyka_Clion.dir\Soldier.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
+  OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
+
+build CMakeFiles/Galaktyka_Clion.dir/Citizen.cpp.obj: CXX_COMPILER__Galaktyka_Clion_unscanned_Debug C$:/Users/szadk/Desktop/Studia/Programowanie$ obiektowe/Galaktyka_Clion/Citizen.cpp || cmake_object_order_depends_target_Galaktyka_Clion
+  DEP_FILE = CMakeFiles\Galaktyka_Clion.dir\Citizen.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir
+  OBJECT_FILE_DIR = CMakeFiles\Galaktyka_Clion.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Galaktyka_Clion
@@ -183,7 +201,7 @@ build CMakeFiles/Galaktyka_Clion.dir/MapGenerator.cpp.obj: CXX_COMPILER__Galakty
 #############################################
 # Link the executable Galaktyka_Clion.exe
 
-build Galaktyka_Clion.exe: CXX_EXECUTABLE_LINKER__Galaktyka_Clion_Debug CMakeFiles/Galaktyka_Clion.dir/main.cpp.obj CMakeFiles/Galaktyka_Clion.dir/SpaceShip.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Civilization.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Planet.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Star.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Resource.cpp.obj CMakeFiles/Galaktyka_Clion.dir/BlackHole.cpp.obj CMakeFiles/Galaktyka_Clion.dir/AsteroidField.cpp.obj CMakeFiles/Galaktyka_Clion.dir/WormHole.cpp.obj CMakeFiles/Galaktyka_Clion.dir/GalacticMarket.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Coalition.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Galaxy_Object.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Vehicle.cpp.obj CMakeFiles/Galaktyka_Clion.dir/TransportSpaceShip.cpp.obj CMakeFiles/Galaktyka_Clion.dir/PeopleCarrier.cpp.obj CMakeFiles/Galaktyka_Clion.dir/ResourceCarrier.cpp.obj CMakeFiles/Galaktyka_Clion.dir/CelestialBody.cpp.obj CMakeFiles/Galaktyka_Clion.dir/IsUpdatable.cpp.obj CMakeFiles/Galaktyka_Clion.dir/FastTravelObject.cpp.obj CMakeFiles/Galaktyka_Clion.dir/RandomMapGenerator.cpp.obj CMakeFiles/Galaktyka_Clion.dir/MapGenerator.cpp.obj
+build Galaktyka_Clion.exe: CXX_EXECUTABLE_LINKER__Galaktyka_Clion_Debug CMakeFiles/Galaktyka_Clion.dir/main.cpp.obj CMakeFiles/Galaktyka_Clion.dir/SpaceShip.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Civilization.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Planet.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Star.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Resource.cpp.obj CMakeFiles/Galaktyka_Clion.dir/BlackHole.cpp.obj CMakeFiles/Galaktyka_Clion.dir/AsteroidField.cpp.obj CMakeFiles/Galaktyka_Clion.dir/WormHole.cpp.obj CMakeFiles/Galaktyka_Clion.dir/GalacticMarket.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Coalition.cpp.obj CMakeFiles/Galaktyka_Clion.dir/GalaxyObject.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Vehicle.cpp.obj CMakeFiles/Galaktyka_Clion.dir/TransportSpaceShip.cpp.obj CMakeFiles/Galaktyka_Clion.dir/PeopleCarrier.cpp.obj CMakeFiles/Galaktyka_Clion.dir/ResourceCarrier.cpp.obj CMakeFiles/Galaktyka_Clion.dir/CelestialBody.cpp.obj CMakeFiles/Galaktyka_Clion.dir/IsUpdatable.cpp.obj CMakeFiles/Galaktyka_Clion.dir/FastTravelObject.cpp.obj CMakeFiles/Galaktyka_Clion.dir/RandomMapGenerator.cpp.obj CMakeFiles/Galaktyka_Clion.dir/MapGenerator.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Specialisation.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Soldier.cpp.obj CMakeFiles/Galaktyka_Clion.dir/Citizen.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Galaktyka_Clion.dir

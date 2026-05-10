@@ -1,6 +1,6 @@
 #ifndef ASTEROIDFIELD_H
 #define ASTEROIDFIELD_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class AsteroidField : public GalaxyObject
 {

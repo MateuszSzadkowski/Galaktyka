@@ -1,6 +1,6 @@
 #ifndef RANDOMCLUSTERGENERATOR_H
 #define RANDOMCLUSTERGENERATOR_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 #include "MapGenerator.h"
 
 

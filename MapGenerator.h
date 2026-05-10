@@ -1,6 +1,6 @@
 #ifndef MAPGENERATOR_H
 #define MAPGENERATOR_H
-#include "Galaxy_Object.h"
+#include "GalaxyObject.h"
 
 class MapGenerator : protected GalaxyObject
 {

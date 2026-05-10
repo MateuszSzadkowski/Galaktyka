@@ -1,47 +1,51 @@
 #include "Civilization.h"
 #include <iostream>
+#include <ranges>
 
-Civilization::Civilization(const std::string &name, const long int populationInMillions, const double militaryRating)
+#include "Citizen.h"
+#include "Soldier.h"
+
+Civilization::Civilization(const std::string &name, const double baseMilitaryRating,
+                           const long long int populationCount, Planet *homePlanet) : baseMilitaryRating(baseMilitaryRating)
 {
     this->name = name;
-    this->populationInMillions = populationInMillions;
-    if (militaryRating >= 0 && militaryRating <= 2)
-        this->militaryRating = militaryRating;
-    else
-        this->militaryRating = 0;
+    this->population.emplace(new Soldier, static_cast<unsigned long long int>(baseMilitaryRating * static_cast<double>(populationCount)));
+    this->population.emplace(new Citizen, static_cast<unsigned long long int>(static_cast<double>(populationCount) - baseMilitaryRating * static_cast<double>(populationCount)));
+    this->homePlanet = homePlanet;
+    this->militaryRating = baseMilitaryRating;
 }
 
 Civilization::~Civilization()
 {
-    for(const auto & i : fleet)
-    {
-        delete i;
+    for (auto const& spaceShip : std::views::keys(fleet)) {
+        delete spaceShip;
     }
+    fleet.clear();
+
+    for (const Resource* resource : resources) {
+        delete resource;
+    }
+    resources.clear();
+}
+
+unsigned long long int Civilization::getPopulationCount() const
+{
+    unsigned long long int populationCount = 0;
+    for(auto const& count : std::views::values(population))
+    {
+        populationCount += count;
+    }
+    return populationCount;
 }
 
 void Civilization::ShowInformation() const
 {
-    std::cout << "Name: " << name << std::endl << "Population: " << populationInMillions << " mil." << std::endl << "Military Rating: " << militaryRating << std::endl;
-}
-
-long long int Civilization::getPopulation() const
-{
-    return populationInMillions;
+    std::cout << "Name: " << name << std::endl << "Population: " << getPopulationCount() << " mil." << std::endl << "Military Rating: " << militaryRating << std::endl;
 }
 
 std::string Civilization::getName() const
 {
     return name;
-}
-
-double Civilization::getMilitaryCapabilities() const
-{
-    return militaryRating * populationInMillions;
-}
-
-void Civilization::SufferLosses(long int losses)
-{
-    populationInMillions -= losses;
 }
 
 void Civilization::ExtractResources(Planet* planet, Resource* resource)

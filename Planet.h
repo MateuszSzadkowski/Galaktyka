@@ -20,7 +20,7 @@ private:
 	std::vector<Resource*> availableResources{};
 
 public:
-	Planet(const std::string &name, std::initializer_list<Civilization *> inhabitants, Coordinates barycenter,
+	Planet(const std::string &name, Coordinates barycenter,
 	       float distanceFromBarycenter, float revolutionSpeed, std::initializer_list<Resource *> availableResources);
 
 	~Planet() override;
@@ -32,14 +32,6 @@ public:
 	void UpdatePosition(int tick) override;
 
 	void ShowInformation() override;
-
-	void WipeCivilisation(int civilisationIndex);
-
-	[[nodiscard]] bool CompareStrengths(int attackersIndex, int defendersIndex) const;
-
-	void CivilisationsWar(int attackersIndex, int defendersIndex);
-
-	[[nodiscard]] float getCombinedMilitaryCapabilities() const;
 
 	std::string getName() override;
 
